@@ -15,6 +15,11 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { ChevronLeft, ChevronRight, AlertCircle, Eye } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
+// TODO: extract the pagination logic to a separate component
+// TODO: extract the error handling logic to a reusable component
+
+
+
 type HorsesTableProps = {
   onViewHorse: (horse: Horse) => void;
 };
