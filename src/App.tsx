@@ -1,35 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { HorsesTable } from "@/components/HorsesTable";
+import { MainPageHeader } from "@/components/MainPageHeader";
+
+// Will use useState to handle the state management rather than a State Management Library like Redux or Zustand
+// because the app is small and simple and we don't need the complexity of a State Management Library
+
+
+// TODO: Add tests for the table 
+// TODO: Add a modal to display the horse details
+// TODO: Update the horse details from the modal
+// TODO: Add modal for adding a new  horse, possibly use same modal for editing ?
+// TODO: Add a Comparison logic to compare the selected horses
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="p-8">
+      <MainPageHeader onAddHorse={() => {}} />
+      <HorsesTable onViewHorse={() => {}} />
+    </div>
+  );
 }
 
-export default App
+export default App;
