@@ -37,7 +37,7 @@ export const HorsesTable = ({ onViewHorse }: HorsesTableProps) => {
 
   if (isLoading) {
     return (
-      <Card className="p-4">
+      <Card className="p-4" data-testid="horses-table-loading">
         <div className="space-y-3">
           <Skeleton className="h-8 w-full" />
           {Array.from({ length: 5 }).map((_, index) => (
@@ -50,7 +50,7 @@ export const HorsesTable = ({ onViewHorse }: HorsesTableProps) => {
 
   if (error) {
     return (
-      <Card className="p-6 border-red-200 bg-red-50 dark:bg-red-950/20 dark:border-red-800">
+      <Card className="p-6 border-red-200 bg-red-50 dark:bg-red-950/20 dark:border-red-800" data-testid="horses-table-error">
         <div className="flex items-center gap-3 text-red-600 dark:text-red-400">
           <AlertCircle size={20} />
           <p className="font-medium">Error loading horses: {error.message}</p>
@@ -138,9 +138,9 @@ export const HorsesTable = ({ onViewHorse }: HorsesTableProps) => {
 
       <div className="flex items-center justify-between mt-6 pt-4 border-t">
         <div className="text-sm text-muted-foreground">
-          Showing <span className="font-medium">{indexOfFirstItem + 1}</span>-
-          <span className="font-medium">{Math.min(indexOfLastItem, data.length)}</span> of{" "}
-          <span className="font-medium">{data.length}</span> horses
+          Showing <span className="font-medium" data-testid="pagination-showing-start">{indexOfFirstItem + 1}</span>-
+          <span className="font-medium" data-testid="pagination-showing-end">{Math.min(indexOfLastItem, data.length)}</span> of{" "}
+          <span className="font-medium" data-testid="pagination-showing-total">{data.length}</span> horses
         </div>
         <div className="flex items-center space-x-2">
           <Button
